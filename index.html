@@ -1,3 +1,5 @@
+Here you go — copy everything between the lines:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,661 +9,176 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #0d0f0e;
-    --white: #f5f2ec;
-    --green: #1a6b3c;
-    --green-light: #2d9156;
-    --green-pale: #e8f2ec;
-    --amber: #c4832a;
-    --text: #1a1c1b;
-    --muted: #6b7069;
-    --border: #d4cfc6;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(245, 242, 236, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Instrument Serif', serif;
-    font-size: 22px;
-    color: var(--text);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
-
-  .nav-logo span { color: var(--green); }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--text); }
-
-  .nav-cta {
-    background: var(--green);
-    color: white !important;
-    padding: 9px 20px;
-    border-radius: 100px;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--green-light) !important; color: white !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 48px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(26, 107, 60, 0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(196, 131, 42, 0.06) 0%, transparent 60%);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    opacity: 0.3;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
-  }
-
-  .hero-content {
-    position: relative;
-    max-width: 800px;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--green-pale);
-    border: 1px solid rgba(26, 107, 60, 0.2);
-    padding: 6px 14px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--green);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.1s;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--green);
-    border-radius: 50%;
-  }
-
-  .hero-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(52px, 7vw, 88px);
-    line-height: 1.0;
-    letter-spacing: -2px;
-    color: var(--text);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.25s;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--green);
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 540px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.4s;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.55s;
-  }
-
-  .btn-primary {
-    background: var(--green);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
-
-  .btn-secondary {
-    color: var(--text);
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.2s;
-  }
-
-  .btn-secondary:hover { gap: 12px; }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 48px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.8s;
-  }
-
-  .scroll-line {
-    width: 40px;
-    height: 1px;
-    background: var(--muted);
-  }
-
-  /* MISSION */
-  .mission {
-    padding: 100px 48px;
-    border-top: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .mission-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 20px;
-  }
-
-  .mission-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 42px;
-    line-height: 1.15;
-    letter-spacing: -1px;
-    margin-bottom: 24px;
-  }
-
-  .mission-text {
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .mission-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .stat-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
-  }
-
-  .stat-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: 42px;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  /* PRODUCTS */
-  .products {
-    padding: 100px 48px;
-    background: var(--black);
-    color: var(--white);
-  }
-
-  .products-header {
-    max-width: 1200px;
-    margin: 0 auto 64px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .products-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--green-light);
-    margin-bottom: 16px;
-  }
-
-  .products-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 48px;
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-  }
-
-  .products-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .product-card {
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 48px 40px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.2s;
-    cursor: default;
-  }
-
-  .product-card:hover {
-    border-color: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-  }
-
-  .product-card.featured {
-    background: linear-gradient(135deg, rgba(26,107,60,0.15) 0%, transparent 60%);
-    border-color: rgba(26,107,60,0.4);
-  }
-
-  .product-card.featured:hover {
-    border-color: rgba(26,107,60,0.7);
-  }
-
-  .product-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 100px;
-    margin-bottom: 32px;
-  }
-
-  .tag-green { background: rgba(26,107,60,0.3); color: #6ee09e; }
-  .tag-amber { background: rgba(196,131,42,0.3); color: #f5c26b; }
-
-  .product-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .product-name {
-    font-family: 'Instrument Serif', serif;
-    font-size: 32px;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-  }
-
-  .product-desc {
-    font-size: 15px;
-    color: rgba(245,242,236,0.6);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 32px;
-  }
-
-  .product-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 36px;
-  }
-
-  .product-features li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(245,242,236,0.7);
-  }
-
-  .product-features li::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--green-light);
-    flex-shrink: 0;
-  }
-
-  .product-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s, gap 0.2s;
-  }
-
-  .product-link:hover { opacity: 1; gap: 12px; }
-
-  .product-status {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 100px;
-    letter-spacing: 0.5px;
-  }
-
-  .status-live { background: rgba(26,107,60,0.4); color: #6ee09e; }
-  .status-beta { background: rgba(196,131,42,0.3); color: #f5c26b; }
-
-  /* FOR WHO */
-  .forwho {
-    padding: 100px 48px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .forwho-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .forwho-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 48px;
-    letter-spacing: -1.5px;
-    text-align: center;
-    margin-bottom: 64px;
-    line-height: 1.1;
-  }
-
-  .forwho-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .who-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  }
-
-  .who-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.07);
-    border-color: rgba(26,107,60,0.3);
-  }
-
-  .who-icon { font-size: 36px; margin-bottom: 16px; display: block; }
-
-  .who-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .who-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* CTA */
-  .cta-section {
-    padding: 100px 48px;
-    background: var(--green);
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 80% 50%, rgba(0,0,0,0.1) 0%, transparent 60%);
-  }
-
-  .cta-inner { position: relative; max-width: 600px; margin: 0 auto; }
-
-  .cta-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 56px;
-    letter-spacing: -2px;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-
-  .cta-sub {
-    font-size: 17px;
-    opacity: 0.8;
-    font-weight: 300;
-    margin-bottom: 40px;
-    line-height: 1.6;
-  }
-
-  .cta-form {
-    display: flex;
-    gap: 12px;
-    max-width: 440px;
-    margin: 0 auto;
-  }
-
-  .cta-input {
-    flex: 1;
-    padding: 14px 20px;
-    border-radius: 100px;
-    border: none;
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    outline: none;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .cta-input::placeholder { color: rgba(255,255,255,0.5); }
-  .cta-input:focus { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
-
-  .cta-btn {
-    background: white;
-    color: var(--green);
-    padding: 14px 24px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: transform 0.15s, opacity 0.2s;
-    white-space: nowrap;
-  }
-
-  .cta-btn:hover { transform: scale(1.03); }
-
-  /* FOOTER */
-  footer {
-    padding: 40px 48px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-logo {
-    font-family: 'Instrument Serif', serif;
-    font-size: 18px;
-    color: var(--text);
-  }
-
-  .footer-logo span { color: var(--green); }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--text); }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-title { font-size: 48px; letter-spacing: -1.5px; }
-    .hero-scroll { display: none; }
-    .mission { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
-    .products { padding: 60px 24px; }
-    .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .products-grid { grid-template-columns: 1fr; }
-    .forwho { padding: 60px 24px; }
-    .forwho-grid { grid-template-columns: 1fr 1fr; }
-    .forwho-title { font-size: 36px; }
-    .cta-section { padding: 60px 24px; }
-    .cta-title { font-size: 40px; }
-    .cta-form { flex-direction: column; }
-    footer { flex-direction: column; gap: 20px; text-align: center; }
-  }
+:root {
+--black: #0d0f0e;
+--white: #f5f2ec;
+--green: #1a6b3c;
+--green-light: #2d9156;
+--green-pale: #e8f2ec;
+--amber: #c4832a;
+--text: #1a1c1b;
+--muted: #6b7069;
+--border: #d4cfc6;
+}
+html { scroll-behavior: smooth; }
+body {
+font-family: 'DM Sans', sans-serif;
+background: var(--white);
+color: var(--text);
+overflow-x: hidden;
+}
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 20px 48px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(245, 242, 236, 0.92);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--text); text-decoration: none; }
+.nav-logo span { color: var(--green); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--green); color: white !important; padding: 9px 20px; border-radius: 100px; font-size: 13px !important; font-weight: 600 !important; }
+.nav-cta:hover { background: var(--green-light) !important; }
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 120px 48px 80px;
+position: relative;
+overflow: hidden;
+}
+.hero-bg {
+position: absolute; inset: 0;
+background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(26,107,60,0.08) 0%, transparent 70%),
+radial-gradient(ellipse 40% 40% at 20% 80%, rgba(196,131,42,0.06) 0%, transparent 60%);
+}
+.hero-grid {
+position: absolute; inset: 0;
+background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+background-size: 60px 60px;
+opacity: 0.3;
+mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+}
+.hero-content { position: relative; max-width: 760px; }
+.hero-badge {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(--green-pale); border: 1px solid rgba(26,107,60,0.2);
+padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600;
+color: var(--green); letter-spacing: 0.5px; text-transform: uppercase;
+margin-bottom: 32px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+.hero-title {
+font-family: 'Instrument Serif', serif;
+font-size: clamp(52px, 7vw, 88px);
+line-height: 1.0; letter-spacing: -2px; color: var(--text);
+margin-bottom: 28px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s;
+}
+.hero-title em { font-style: italic; color: var(--green); }
+.hero-sub {
+font-size: 18px; font-weight: 300; color: var(--muted); line-height: 1.7;
+max-width: 540px; margin: 0 auto 48px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
+}
+.hero-actions {
+display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;
+opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
+}
+.btn-primary { background: var(--green); color: white; padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+.btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+.btn-secondary { color: var(--text); font-size: 15px; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+.btn-secondary:hover { gap: 12px; }
+.mission {
+padding: 100px 48px; border-top: 1px solid var(--border);
+display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+align-items: center; max-width: 1200px; margin: 0 auto;
+}
+.mission-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+.mission-title { font-family: 'Instrument Serif', serif; font-size: 42px; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px; }
+.mission-text { font-size: 16px; color: var(--muted); line-height: 1.8; font-weight: 300; }
+.mission-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.stat-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: transform 0.2s, box-shadow 0.2s; }
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.stat-num { font-family: 'Instrument Serif', serif; font-size: 42px; color: var(--green); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 13px; color: var(--muted); }
+.products { padding: 100px 48px; background: var(--black); color: var(--white); }
+.products-header { max-width: 1200px; margin: 0 auto 64px; }
+.products-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; }
+.products-title { font-family: 'Instrument Serif', serif; font-size: 48px; letter-spacing: -1.5px; line-height: 1.1; }
+.products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.product-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 48px 40px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
+.product-card:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+.product-card.featured { background: linear-gradient(135deg, rgba(26,107,60,0.15) 0%, transparent 60%); border-color: rgba(26,107,60,0.4); }
+.product-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 32px; }
+.tag-green { background: rgba(26,107,60,0.3); color: #6ee09e; }
+.tag-amber { background: rgba(196,131,42,0.3); color: #f5c26b; }
+.tag-blue { background: rgba(42,100,196,0.3); color: #6b9ef5; }
+.product-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+.product-name { font-family: 'Instrument Serif', serif; font-size: 32px; letter-spacing: -0.5px; margin-bottom: 16px; }
+.product-desc { font-size: 15px; color: rgba(245,242,236,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 32px; }
+.product-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.product-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(245,242,236,0.7); }
+.product-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; }
+.product-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); text-decoration: none; opacity: 0.7; transition: opacity 0.2s, gap 0.2s; }
+.product-link:hover { opacity: 1; gap: 12px; }
+.product-status { position: absolute; top: 24px; right: 24px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; }
+.status-live { background: rgba(26,107,60,0.4); color: #6ee09e; }
+.status-beta { background: rgba(196,131,42,0.3); color: #f5c26b; }
+.forwho { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+.forwho-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 20px; text-align: center; }
+.forwho-title { font-family: 'Instrument Serif', serif; font-size: 48px; letter-spacing: -1.5px; text-align: center; margin-bottom: 64px; line-height: 1.1; }
+.forwho-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.who-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; text-align: center; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.who-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); border-color: rgba(26,107,60,0.3); }
+.who-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+.who-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+.who-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.cta-section { padding: 100px 48px; background: var(--green); text-align: center; color: white; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%); }
+.cta-inner { position: relative; max-width: 600px; margin: 0 auto; }
+.cta-title { font-family: 'Instrument Serif', serif; font-size: 56px; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; }
+.cta-sub { font-size: 17px; opacity: 0.8; font-weight: 300; margin-bottom: 40px; line-height: 1.6; }
+.cta-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto; }
+.cta-input { flex: 1; padding: 14px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); font-size: 15px; font-family: 'DM Sans', sans-serif; background: rgba(255,255,255,0.15); color: white; outline: none; }
+.cta-input::placeholder { color: rgba(255,255,255,0.5); }
+.cta-btn { background: white; color: var(--green); padding: 14px 24px; border-radius: 100px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--text); }
+.footer-logo span { color: var(--green); }
+.footer-copy { font-size: 13px; color: var(--muted); }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) {
+nav { padding: 16px 24px; }
+.nav-links { display: none; }
+.hero { padding: 100px 24px 60px; }
+.hero-title { font-size: 48px; letter-spacing: -1.5px; }
+.mission { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+.products { padding: 60px 24px; }
+.products-grid { grid-template-columns: 1fr; }
+.forwho { padding: 60px 24px; }
+.forwho-grid { grid-template-columns: 1fr 1fr; }
+.forwho-title { font-size: 36px; }
+.cta-section { padding: 60px 24px; }
+.cta-title { font-size: 40px; }
+.cta-form { flex-direction: column; }
+footer { flex-direction: column; gap: 20px; text-align: center; }
+}
 </style>
 </head>
 <body>
-
 <nav>
   <a href="#" class="nav-logo">Cause<span>Stack</span></a>
   <ul class="nav-links">
@@ -670,8 +187,6 @@
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -684,13 +199,7 @@
       <a href="#contact" class="btn-secondary">Work with us →</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span class="scroll-line"></span>
-    Scroll to explore
-  </div>
 </section>
-
-<!-- MISSION -->
 <section class="mission" id="mission">
   <div class="reveal">
     <p class="mission-label">Our Mission</p>
@@ -698,32 +207,16 @@
     <p class="mission-text">Campaigns, schools, nonprofits, and unions do essential work — but they're often stuck with tools built for someone else. CauseStack builds purpose-fit software for the people who show up every day to make things better.</p>
   </div>
   <div class="mission-stats reveal">
-    <div class="stat-card">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Products in active development</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Canvassers tracked in real time</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">K–12</div>
-      <div class="stat-label">Classroom-ready financial education</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">Boston</div>
-      <div class="stat-label">Built by a campaign organizer</div>
-    </div>
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Products live or in development</div></div>
+    <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Canvassers tracked in real time</div></div>
+    <div class="stat-card"><div class="stat-num">K–12</div><div class="stat-label">Classroom-ready financial education</div></div>
+    <div class="stat-card"><div class="stat-num">Boston</div><div class="stat-label">Built by a campaign organizer</div></div>
   </div>
 </section>
-
-<!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="products-header">
-    <div>
-      <p class="products-label">What We Build</p>
-      <h2 class="products-title">Our products</h2>
-    </div>
+    <p class="products-label">What We Build</p>
+    <h2 class="products-title">Our products</h2>
   </div>
   <div class="products-grid">
     <div class="product-card featured reveal">
@@ -754,38 +247,32 @@
       </ul>
       <a href="https://lemonadeclass.com" class="product-link" target="_blank">Visit lemonadeclass.com →</a>
     </div>
+    <div class="product-card reveal">
+      <span class="product-status status-live">Live</span>
+      <span class="product-tag tag-blue">Civic Tech</span>
+      <span class="product-icon">🏘️</span>
+      <h3 class="product-name">FixMyBlock</h3>
+      <p class="product-desc">A neighborhood reporting tool for Boston residents. Spot an issue on your block? Report it fast and hold your city accountable.</p>
+      <ul class="product-features">
+        <li>Quick issue reporting by neighborhood</li>
+        <li>Boston-focused civic accountability</li>
+        <li>Simple, no-login experience</li>
+        <li>Community-first design</li>
+      </ul>
+      <a href="https://fixmyblock.app" class="product-link" target="_blank">Visit fixmyblock.app →</a>
+    </div>
   </div>
 </section>
-
-<!-- FOR WHO -->
 <section class="forwho">
   <p class="forwho-label reveal">Who We Serve</p>
   <h2 class="forwho-title reveal">Tools built for<br>the field, not the boardroom.</h2>
   <div class="forwho-grid">
-    <div class="who-card reveal">
-      <span class="who-icon">🗳️</span>
-      <h3 class="who-title">Political Campaigns</h3>
-      <p class="who-desc">Track your field team in real time. Know who's where, when they clocked in, and how long they've been out.</p>
-    </div>
-    <div class="who-card reveal">
-      <span class="who-icon">🏢</span>
-      <h3 class="who-title">Consultants</h3>
-      <p class="who-desc">Run field programs for multiple clients with tools built for accountability and reporting.</p>
-    </div>
-    <div class="who-card reveal">
-      <span class="who-icon">🏫</span>
-      <h3 class="who-title">Educators</h3>
-      <p class="who-desc">Bring financial literacy to life with a simulation students actually want to play.</p>
-    </div>
-    <div class="who-card reveal">
-      <span class="who-icon">✊</span>
-      <h3 class="who-title">Nonprofits & Unions</h3>
-      <p class="who-desc">Field organizing tools that fit the way your people actually work — on the ground, on the move.</p>
-    </div>
+    <div class="who-card reveal"><span class="who-icon">🗳️</span><h3 class="who-title">Political Campaigns</h3><p class="who-desc">Track your field team in real time. Know who's where, when they clocked in, and how long they've been out.</p></div>
+    <div class="who-card reveal"><span class="who-icon">🏢</span><h3 class="who-title">Consultants</h3><p class="who-desc">Run field programs for multiple clients with tools built for accountability and reporting.</p></div>
+    <div class="who-card reveal"><span class="who-icon">🏫</span><h3 class="who-title">Educators</h3><p class="who-desc">Bring financial literacy to life with a simulation students actually want to play.</p></div>
+    <div class="who-card reveal"><span class="who-icon">✊</span><h3 class="who-title">Nonprofits & Unions</h3><p class="who-desc">Field organizing tools that fit the way your people actually work — on the ground, on the move.</p></div>
   </div>
 </section>
-
-<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="cta-inner">
     <h2 class="cta-title">Let's build something that matters.</h2>
@@ -796,19 +283,17 @@
     </form>
   </div>
 </section>
-
 <footer>
   <div class="footer-logo">Cause<span>Stack</span></div>
   <p class="footer-copy">© 2026 CauseStack. Built in Boston.</p>
   <ul class="footer-links">
     <li><a href="https://groundhalo.com" target="_blank">GroundHalo</a></li>
     <li><a href="https://lemonadeclass.com" target="_blank">Lemonade Class</a></li>
+    <li><a href="https://fixmyblock.app" target="_blank">FixMyBlock</a></li>
     <li><a href="mailto:hello@causestack.app">Contact</a></li>
   </ul>
 </footer>
-
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -820,12 +305,11 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Form
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     const input = e.target.querySelector('input');
-    btn.textContent = '✓ We\'ll be in touch!';
+    btn.textContent = "✓ We'll be in touch!";
     btn.style.background = '#e8f2ec';
     btn.style.color = '#1a6b3c';
     input.value = '';
@@ -833,6 +317,5 @@
     btn.disabled = true;
   }
 </script>
-
 </body>
 </html>
