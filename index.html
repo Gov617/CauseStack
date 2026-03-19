@@ -1,6 +1,5 @@
-Here you go — all three set to Coming Soon:
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -47,7 +46,7 @@ Here you go — all three set to Coming Soon:
   .products-header { max-width: 1200px; margin: 0 auto 64px; }
   .products-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; }
   .products-title { font-family: 'Instrument Serif', serif; font-size: 48px; letter-spacing: -1.5px; line-height: 1.1; }
-  .products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .product-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 48px 40px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
   .product-card:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
   .product-card.featured { background: linear-gradient(135deg, rgba(26,107,60,0.15) 0%, transparent 60%); border-color: rgba(26,107,60,0.4); }
@@ -55,6 +54,7 @@ Here you go — all three set to Coming Soon:
   .tag-green { background: rgba(26,107,60,0.3); color: #6ee09e; }
   .tag-amber { background: rgba(196,131,42,0.3); color: #f5c26b; }
   .tag-blue { background: rgba(42,100,196,0.3); color: #6b9ef5; }
+  .tag-rose { background: rgba(180,42,80,0.3); color: #f5a0b5; }
   .product-icon { font-size: 40px; margin-bottom: 20px; display: block; }
   .product-name { font-family: 'Instrument Serif', serif; font-size: 32px; letter-spacing: -0.5px; margin-bottom: 16px; }
   .product-desc { font-size: 15px; color: rgba(245,242,236,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 32px; }
@@ -95,11 +95,12 @@ Here you go — all three set to Coming Soon:
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; } .nav-links { display: none; } .hero { padding: 100px 24px 60px; } .hero-title { font-size: 48px; letter-spacing: -1.5px; } .mission { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; } .products { padding: 60px 24px; } .products-grid { grid-template-columns: 1fr; } .forwho { padding: 60px 24px; } .forwho-grid { grid-template-columns: 1fr 1fr; } .forwho-title { font-size: 36px; } .cta-section { padding: 60px 24px; } .cta-title { font-size: 40px; } .cta-form { flex-direction: column; } footer { flex-direction: column; gap: 20px; text-align: center; }
+    nav { padding: 16px 24px; } .nav-links { display: none; } .hero { padding: 100px 24px 60px; } .hero-title { font-size: 48px; letter-spacing: -1.5px; } .mission { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; } .products { padding: 60px 24px; } .products-grid { grid-template-columns: 1fr; } .forwho { padding: 60px 24px; } .forwho-grid { grid-template-columns: 1fr 1fr; } .forwho-title { font-size: 36px; } .cta-section { padding: 60px 24px; } .cta-title { font-size: 40px; } .cta-form { flex-direction: column; } footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 24px; }
   }
 </style>
 </head>
 <body>
+
 <nav>
   <a href="#" class="nav-logo">Cause<span>Stack</span></a>
   <ul class="nav-links">
@@ -108,6 +109,7 @@ Here you go — all three set to Coming Soon:
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
+
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -121,6 +123,7 @@ Here you go — all three set to Coming Soon:
     </div>
   </div>
 </section>
+
 <section class="mission" id="mission">
   <div class="reveal">
     <p class="mission-label">Our Mission</p>
@@ -128,62 +131,85 @@ Here you go — all three set to Coming Soon:
     <p class="mission-text">Campaigns, schools, nonprofits, and unions do essential work — but they're often stuck with tools built for someone else. CauseStack builds purpose-fit software for the people who show up every day to make things better.</p>
   </div>
   <div class="mission-stats reveal">
-    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Products in development</div></div>
+    <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Products in development</div></div>
     <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Canvassers tracked in real time</div></div>
     <div class="stat-card"><div class="stat-num">K–12</div><div class="stat-label">Classroom-ready financial education</div></div>
     <div class="stat-card"><div class="stat-num">Boston</div><div class="stat-label">Built by a campaign organizer</div></div>
   </div>
 </section>
+
 <section class="products" id="products">
   <div class="products-header">
     <p class="products-label">What We Build</p>
     <h2 class="products-title">Our products</h2>
   </div>
   <div class="products-grid">
-    <div class="product-card featured reveal">
-      <span class="product-status status-beta">Coming Soon</span>
-      <span class="product-tag tag-green">Field Operations</span>
-      <span class="product-icon">📍</span>
-      <h3 class="product-name">GroundHalo</h3>
-      <p class="product-desc">Real-time canvass tracking for political campaigns and field operations. Directors see their team on a live map. Workers clock in with one tap.</p>
-      <ul class="product-features">
-        <li>Live GPS tracking with 5-minute pings</li>
-        <li>Start & end shift with one tap</li>
-        <li>Director dashboard with field map</li>
-        <li>iOS & Android native app</li>
-      </ul>
-      <a href="https://groundhalo.com" class="product-link" target="_blank">Visit groundhalo.com →</a>
-    </div>
-    <div class="product-card reveal">
-      <span class="product-status status-beta">Coming Soon</span>
-      <span class="product-tag tag-amber">Education</span>
-      <span class="product-icon">🍋</span>
-      <h3 class="product-name">Lemonade Class</h3>
-      <p class="product-desc">A classroom micro-business simulation for grades 6–7. Students run a lemonade stand and learn real financial literacy through hands-on decisions.</p>
-      <ul class="product-features">
-        <li>Pricing, production & marketing decisions</li>
-        <li>Revenue vs. profit, fixed vs. variable costs</li>
-        <li>Inventory management & waste tracking</li>
-        <li>iPad-ready for the classroom</li>
-      </ul>
-      <a href="https://lemonadeclass.com" class="product-link" target="_blank">Visit lemonadeclass.com →</a>
-    </div>
-    <div class="product-card reveal">
-      <span class="product-status status-beta">Coming Soon</span>
-      <span class="product-tag tag-blue">Civic Tech</span>
-      <span class="product-icon">🏘️</span>
-      <h3 class="product-name">FixMyBlock</h3>
-      <p class="product-desc">A neighborhood reporting tool for Boston residents. Spot an issue on your block? Report it fast and hold your city accountable.</p>
-      <ul class="product-features">
-        <li>Quick issue reporting by neighborhood</li>
-        <li>Boston-focused civic accountability</li>
-        <li>Simple, no-login experience</li>
-        <li>Community-first design</li>
-      </ul>
-      <a href="https://fixmyblock.app" class="product-link" target="_blank">Visit fixmyblock.app →</a>
-    </div>
+
+```
+<div class="product-card featured reveal">
+  <span class="product-status status-beta">Coming Soon</span>
+  <span class="product-tag tag-green">Field Operations</span>
+  <span class="product-icon">📍</span>
+  <h3 class="product-name">GroundHalo</h3>
+  <p class="product-desc">Real-time canvass tracking for political campaigns and field operations. Directors see their team on a live map. Workers clock in with one tap.</p>
+  <ul class="product-features">
+    <li>Live GPS tracking with 5-minute pings</li>
+    <li>Start & end shift with one tap</li>
+    <li>Director dashboard with field map</li>
+    <li>iOS & Android native app</li>
+  </ul>
+  <a href="https://groundhalo.com" class="product-link" target="_blank">Visit groundhalo.com →</a>
+</div>
+
+<div class="product-card reveal">
+  <span class="product-status status-beta">Coming Soon</span>
+  <span class="product-tag tag-amber">Education</span>
+  <span class="product-icon">🍋</span>
+  <h3 class="product-name">Lemonade Class</h3>
+  <p class="product-desc">A classroom micro-business simulation for grades 6–7. Students run a lemonade stand and learn real financial literacy through hands-on decisions.</p>
+  <ul class="product-features">
+    <li>Pricing, production & marketing decisions</li>
+    <li>Revenue vs. profit, fixed vs. variable costs</li>
+    <li>Inventory management & waste tracking</li>
+    <li>iPad-ready for the classroom</li>
+  </ul>
+  <a href="https://lemonadeclass.com" class="product-link" target="_blank">Visit lemonadeclass.com →</a>
+</div>
+
+<div class="product-card reveal">
+  <span class="product-status status-beta">Coming Soon</span>
+  <span class="product-tag tag-blue">Civic Tech</span>
+  <span class="product-icon">🏘️</span>
+  <h3 class="product-name">FixMyBlock</h3>
+  <p class="product-desc">A neighborhood reporting tool for Boston residents. Spot an issue on your block? Report it fast and hold your city accountable.</p>
+  <ul class="product-features">
+    <li>Quick issue reporting by neighborhood</li>
+    <li>Boston-focused civic accountability</li>
+    <li>Simple, no-login experience</li>
+    <li>Community-first design</li>
+  </ul>
+  <a href="https://fixmyblock.app" class="product-link" target="_blank">Visit fixmyblock.app →</a>
+</div>
+
+<div class="product-card reveal">
+  <span class="product-status status-beta">Coming Soon</span>
+  <span class="product-tag tag-rose">Civic News</span>
+  <span class="product-icon">📣</span>
+  <h3 class="product-name">The Crier</h3>
+  <p class="product-desc">Boston civic meetings, in plain English — filtered by your neighborhood and delivered to your inbox. Never miss a vote that affects your block.</p>
+  <ul class="product-features">
+    <li>Tracks 40+ public meetings every month</li>
+    <li>AI summaries of every agenda</li>
+    <li>Day-before alerts by neighborhood</li>
+    <li>City Council, BPDA, Zoning & more</li>
+  </ul>
+  <a href="https://crier.boston" class="product-link" target="_blank">Visit crier.boston →</a>
+</div>
+```
+
   </div>
 </section>
+
 <section class="forwho">
   <p class="forwho-label reveal">Who We Serve</p>
   <h2 class="forwho-title reveal">Tools built for<br>the field, not the boardroom.</h2>
@@ -194,6 +220,7 @@ Here you go — all three set to Coming Soon:
     <div class="who-card reveal"><span class="who-icon">✊</span><h3 class="who-title">Nonprofits & Unions</h3><p class="who-desc">Field organizing tools that fit the way your people actually work — on the ground, on the move.</p></div>
   </div>
 </section>
+
 <section class="cta-section" id="contact">
   <div class="cta-inner">
     <h2 class="cta-title">Let's build something that matters.</h2>
@@ -204,6 +231,7 @@ Here you go — all three set to Coming Soon:
     </form>
   </div>
 </section>
+
 <footer>
   <div class="footer-logo">Cause<span>Stack</span></div>
   <p class="footer-copy">© 2026 CauseStack. Built in Boston.</p>
@@ -211,9 +239,11 @@ Here you go — all three set to Coming Soon:
     <li><a href="https://groundhalo.com" target="_blank">GroundHalo</a></li>
     <li><a href="https://lemonadeclass.com" target="_blank">Lemonade Class</a></li>
     <li><a href="https://fixmyblock.app" target="_blank">FixMyBlock</a></li>
+    <li><a href="https://crier.boston" target="_blank">The Crier</a></li>
     <li><a href="mailto:hello@causestack.app">Contact</a></li>
   </ul>
 </footer>
+
 <script>
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -238,5 +268,6 @@ Here you go — all three set to Coming Soon:
     btn.disabled = true;
   }
 </script>
+
 </body>
 </html>
